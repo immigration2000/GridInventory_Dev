@@ -1,0 +1,22 @@
+# Blueprint: WBP_GridCell
+
+## Variables
+
+CellSize: Int Point Structure
+
+## Event: Pre Construct
+
+IF IsDesignTime:
+    SetSize(CellSize)
+
+## Event: Construct
+
+SetSize(CellSize)
+
+## Event: Tick
+
+
+## Function: SetSize
+
+SetWidthOverride(Default__KismetMathLibrary)
+SetHeightOverride(Default__KismetMathLibrary)

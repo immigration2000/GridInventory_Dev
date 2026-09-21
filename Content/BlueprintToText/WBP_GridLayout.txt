@@ -1,0 +1,86 @@
+# Blueprint: WBP_GridLayout
+
+## Variables
+
+PreviewData: Array of ST Grid Slot Info Structures
+MaxGrid: Int Point Structure
+SlotList: Array of WBP Grid Slot Object References
+
+## Dependencies
+
+WBP_GridSlot
+
+## Event: Pre Construct
+
+IF IsDesignTime:
+    InitGrid()
+
+## Event: Construct
+
+InitGrid()
+
+## Event: Tick
+
+
+## Function: DrawLayout
+
+ClearLayout()
+Get Data Table Row DT_GridLayoutData
+Assign
+Assign
+IF Local Integer < Length:
+    Assign
+    SEQUENCE:
+        Assign
+Create Widget
+Array_Add(SlotList, Create Widget)
+Temp = AddChildToGrid(Create Widget, ToMatrix(For Each Loop, For Each Loop, For Each Loop), ToMatrix(For Each Loop, For Each Loop, For Each Loop))
+SetRowSpan(ToMatrix(For Each Loop, false, false))
+SetColumnSpan(ToMatrix(For Each Loop, false, false))
+
+## Function: DrawOneSlotLayout
+
+ClearLayout()
+Create Widget
+Array_Add(SlotList, Create Widget)
+Temp = AddChildToGrid(Create Widget, 0, 0)
+SetRowSpan(ToMatrix(GridSize, false, false))
+SetColumnSpan(ToMatrix(GridSize, false, false))
+
+## Function: DrawLayout_Preview
+
+Assign
+Assign
+IF Local Integer < Length:
+    Assign
+    SEQUENCE:
+        Assign
+Create Widget
+Array_Add(SlotList, Create Widget)
+Temp = AddChildToGrid(Create Widget, ToMatrix(For Each Loop, For Each Loop, For Each Loop), ToMatrix(For Each Loop, For Each Loop, For Each Loop))
+SetRowSpan(ToMatrix(For Each Loop, false, false))
+SetColumnSpan(ToMatrix(For Each Loop, false, false))
+
+## Function: ClearLayout
+
+Assign
+Assign
+IF Local Integer < Length:
+    Assign
+    SEQUENCE:
+        Assign
+RemoveFromParent()
+
+## Function: ToMatrix
+
+Return Node
+
+## Function: InitGrid
+
+Assign
+IF Local Integer <= Inputs:
+    SEQUENCE:
+        Assign
+Create Widget
+SetVisibility(Collapsed)
+AddChildToGrid(Create Widget, For Loop, For Loop)
